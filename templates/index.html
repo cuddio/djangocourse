@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Главная {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <br>
+        <p class="display-6"> Наши туры </p>
+        <br>
+        <div class="card my-4 bg-dark">
+            <div class="card-body">
+                <div class="row">
+                    {% for tour in tours %}
+                        <div class="col">
+                            <div class="card" style="max-width: 25%">
+                                <img class="card-img-top" src="{{ tour.photo.url }}">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{ tour.title }}</h4>
+                                    <pre>{{ tour.description }}</pre>
+                                    <span class="text-muted">Дата {{ tour.date }}</span>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="text-primary">Цена: {{ tour.price }} руб.</span>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
